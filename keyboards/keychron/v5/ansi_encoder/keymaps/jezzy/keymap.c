@@ -5,7 +5,7 @@
 
 enum layers{
   QWERTY,
-  CLMKDH,
+  CLMKDH,  // Colemak Mod-DH
   FN
 };
 
@@ -28,10 +28,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,            KC_X,     KC_C,     KC_D,     KC_V,     KC_Z,     KC_K,     KC_H,     _______,  _______,  _______,              _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,                                _______,                                _______,  _______,    _______,  _______,  _______,  _______,  _______,  _______,  _______),
     [FN] = LAYOUT_ansi_98(
-        QK_MAKE,            _______,  _______,  _______,  _______,  EE_CLR,   _______,  _______,  _______,  _______,  _______,    _______,  _______,            KC_PSCR,  KC_SCRL,  KC_PAUS,  RM_TOGG,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  KC_INS,             KC_NUM,   RM_PREV,  RM_NEXT,  _______,
-        _______,  KC_ESC,   KC_UP,    KC_ENT,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,            RM_HUEU,  RM_SATU,  RM_SPDU,
-        _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,              _______,            RM_HUED,  RM_SATD,  RM_SPDD,  _______,
+        QK_BOOT,            _______,  _______,  DB_TOGG,  _______,  EE_CLR,   _______,  _______,  _______,  QK_RBT,   _______,    _______,  _______,            KC_PSCR,  KC_SCRL,  KC_PAUS,  RM_TOGG,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  KC_INS,             KC_NUM,   RM_SPDD,  RM_SPDU,  _______,
+        _______,  KC_ESC,   KC_UP,    KC_ENT,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,            RM_HUEU,  RM_SATU,  RM_VALU,
+        _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,              _______,            RM_HUED,  RM_SATD,  RM_VALD,  _______,
         _______,            KC_DEL,   KC_BSPC,  KC_CAPS,  _______,  _______,  _______,  _______,  _______,  _______,  _______,              _______,  KC_PGUP,  _______,  _______,  _______,
         _______,  _______,  _______,                                _______,                                _______,  KC_APP,     _______,  KC_HOME,  KC_PGDN,  KC_END,   _______,  NK_TOGG,  _______),
 };
@@ -40,6 +40,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [QWERTY]   = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [CLMKDH]   = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-    [FN]       = { ENCODER_CCW_CW(RM_VALD, RM_VALU)},
+    [FN]       = { ENCODER_CCW_CW(RM_PREV, RM_NEXT)},
 };
 #endif // ENCODER_MAP_ENABLE
