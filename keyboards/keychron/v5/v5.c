@@ -14,8 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "config.h"
-#include "host.h"
+#include "action_layer.h"
 #include "quantum.h"
 #include "rgb_matrix.h"
 
@@ -33,7 +32,7 @@ bool dip_switch_update_kb(uint8_t index, bool active) {
 
 #endif  // DIP_SWITCH_ENABLE
 
-#if defined(RGB_MATRIX_ENABLE) && defined(CAPS_LOCK_LED_INDEX) && defined(NUM_LOCK_LED_INDEX) && defined(SCROLL_LOCK_LED_INDEX)
+#if defined(RGB_MATRIX_ENABLE)
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_user(keycode, record)) { return false; }
@@ -61,17 +60,4 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
-    if (host_keyboard_led_state().caps_lock) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LOCK_LED_INDEX, 255, 112, 243);  // lavender
-    }
-    if (host_keyboard_led_state().num_lock) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(NUM_LOCK_LED_INDEX, 255, 112, 243);
-    }
-    if (host_keyboard_led_state().scroll_lock) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(SCROLL_LOCK_LED_INDEX, 255, 112, 243);
-    }
-    return true;
-}
-
-#endif // CAPS_LOCK_LED_INDEX && NUM_LOCK_LED_INDEX && SCROLL_LOCK_LDEX
+#endif // RGB_MATRIX_ENABLE
